@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Check</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="prank">
+        <span><i data-lucide="cat"></i> Human verification</span>
+        <h1 id="headline">Click below to prove you are not a neko</h1>
+        <p id="copy">Our systems detected suspiciously soft keyboard activity. One honest click will clear this up immediately.</p>
+        <button id="cta" type="button">
+            <span>YOU DARE TO JUDGE ME?</span>
+        </button>
+        <img src="images/cat-scuba.gif" alt="A scuba cat appearing after the prank button is clicked">
+        <p class="caption">meow :) </p>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        const prank = document.querySelector(".prank");
+        const cta = document.querySelector("#cta");
+        const headline = document.querySelector("#headline");
+        const copy = document.querySelector("#copy");
+
+        cta.addEventListener("click", () => {
+            prank.classList.add("revealed");
+            headline.textContent = "Access denied.";
+            copy.textContent = "You clicked the one button the cat specifically wanted you to click.";
+            cta.querySelector("span").textContent = "override";
+        });
+
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
